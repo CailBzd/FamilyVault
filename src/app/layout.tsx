@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import "./globals.css";
 import { AdSenseScript } from "@/components/ads/adsense-script";
+import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
   title: "FamilyVault - Coffre-fort numérique familial",
@@ -19,7 +20,10 @@ export default function RootLayout({
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
       >
-        {children}
+        <Header />
+        <main>
+          {children}
+        </main>
         <AdSenseScript />
       </body>
     </html>

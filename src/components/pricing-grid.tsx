@@ -111,23 +111,23 @@ export function PricingGrid() {
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 text-slate-800">
             Choisissez votre plan FamilyVault
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8">
             Protection des données, intimité familiale et sécurité européenne. 
             Zéro tracking, plan gratuit disponible.
           </p>
 
           {/* Toggle mensuel/annuel */}
           <div className="flex items-center justify-center space-x-4 mb-8">
-            <span className={`text-sm ${billingInterval === 'monthly' ? 'font-semibold' : 'text-muted-foreground'}`}>
+            <span className={`text-sm ${billingInterval === 'monthly' ? 'font-semibold text-slate-700' : 'text-slate-500'}`}>
               Mensuel
             </span>
             <button
               onClick={() => setBillingInterval(billingInterval === 'monthly' ? 'yearly' : 'monthly')}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                billingInterval === 'yearly' ? 'bg-purple-600' : 'bg-gray-200'
+                billingInterval === 'yearly' ? 'bg-purple-400' : 'bg-slate-300'
               }`}
             >
               <span
@@ -136,7 +136,7 @@ export function PricingGrid() {
                 }`}
               />
             </button>
-            <span className={`text-sm ${billingInterval === 'yearly' ? 'font-semibold' : 'text-muted-foreground'}`}>
+            <span className={`text-sm ${billingInterval === 'yearly' ? 'font-semibold text-slate-700' : 'text-slate-500'}`}>
               Annuel
             </span>
             {billingInterval === 'yearly' && (
@@ -159,18 +159,18 @@ export function PricingGrid() {
             return (
               <Card 
                 key={plan.name} 
-                className={`relative overflow-hidden transition-all duration-300 hover:scale-105 ${
-                  plan.popular ? 'ring-2 ring-purple-500 shadow-2xl' : 'hover:shadow-xl'
-                } ${(plan as any).isFree ? 'border-2 border-blue-500' : ''}`}
+                className={`relative overflow-hidden transition-all duration-300 hover:scale-105 bg-white border-slate-200 ${
+                  plan.popular ? 'ring-2 ring-purple-300 shadow-lg' : 'hover:shadow-lg'
+                } ${(plan as any).isFree ? 'border-2 border-blue-300' : ''}`}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-2 text-sm font-medium">
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-400 to-purple-500 text-white text-center py-2 text-sm font-medium">
                     ⭐ Plus populaire
                   </div>
                 )}
 
                 {(plan as any).isFree && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-500 to-cyan-600 text-white text-center py-2 text-sm font-medium">
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-400 to-cyan-500 text-white text-center py-2 text-sm font-medium">
                     ⚡ Gratuit à vie
                   </div>
                 )}
@@ -179,14 +179,14 @@ export function PricingGrid() {
                   <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${plan.color} flex items-center justify-center mb-4`}>
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <CardDescription className="text-sm">{plan.description}</CardDescription>
+                  <CardTitle className="text-xl text-slate-800">{plan.name}</CardTitle>
+                  <CardDescription className="text-sm text-slate-600">{plan.description}</CardDescription>
                   <div className="flex items-baseline mt-4">
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground ml-1 text-sm">{plan.period}</span>
+                    <span className="text-3xl font-bold text-slate-800">{plan.price}</span>
+                    <span className="text-slate-500 ml-1 text-sm">{plan.period}</span>
                   </div>
                   {plan.originalPrice && (
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-xs text-slate-500">
                       <span className="line-through">{plan.originalPrice}</span>
                       <span className="ml-2 text-green-600 font-medium">Économisez 17%</span>
                     </div>
@@ -198,7 +198,7 @@ export function PricingGrid() {
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
                         <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm">{feature}</span>
+                        <span className="text-sm text-slate-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -208,10 +208,10 @@ export function PricingGrid() {
                   <Button 
                     className={`w-full ${
                       plan.popular 
-                        ? 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700' 
+                        ? 'bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white' 
                         : (plan as any).isFree
-                        ? 'bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700'
-                        : ''
+                        ? 'bg-gradient-to-r from-blue-400 to-cyan-500 hover:from-blue-500 hover:to-cyan-600 text-white'
+                        : 'border-slate-300 text-slate-700 hover:bg-slate-50'
                     }`}
                     variant={plan.popular || (plan as any).isFree ? "default" : "outline"}
                     onClick={() => handleSubscribe(plan.id)}
@@ -228,10 +228,10 @@ export function PricingGrid() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-slate-600">
             🇪🇺 Hébergement européen • 🔒 Conforme RGPD • 🛡️ Chiffrement de bout en bout
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
+          <p className="text-xs text-slate-500 mt-2">
             💳 Paiements sécurisés par Stripe • 🔄 Annulation à tout moment • 📞 Support français
           </p>
         </div>
