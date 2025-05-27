@@ -1,36 +1,185 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FamilyVault 🛡️
 
-## Getting Started
+**Votre réseau social familial privé**
 
-First, run the development server:
+FamilyVault est une alternative sécurisée à WhatsApp et Instagram, conçue spécifiquement pour les familles qui souhaitent partager leurs moments précieux dans un environnement totalement privé et sécurisé.
+
+## 🌟 Caractéristiques Principales
+
+- **🔒 Chiffrement de bout en bout** - Vos données sont protégées par un chiffrement militaire
+- **🇪🇺 Hébergement européen** - Conformité RGPD garantie
+- **👨‍👩‍👧‍👦 Multi-générations** - Connectez toute la famille dans un espace sûr
+- **📱 Applications mobiles** - iOS et Android (à venir)
+- **🚫 Zéro tracking** - Aucune publicité, aucun suivi
+- **💾 Sauvegarde automatique** - Vos souvenirs sont en sécurité
+
+## 🏗️ Architecture Technique
+
+- **Framework**: Next.js 15 avec TypeScript
+- **Base de données**: Supabase
+- **UI/UX**: Radix UI + Tailwind CSS
+- **Gestionnaire de paquets**: Yarn
+- **Déploiement**: Vercel (recommandé)
+
+## 💰 Plans Tarifaires
+
+### 📱 Personnel - 9€/mois
+- 1 utilisateur
+- 50 GB de stockage
+- Partage avec 5 membres famille
+- Historique 1 an
+
+### 👨‍👩‍👧‍👦 Famille - 19€/mois ⭐ *Plus populaire*
+- Jusqu'à 8 membres
+- 200 GB de stockage partagé
+- Albums photos illimités
+- Historique 3 ans
+- Sauvegarde automatique mobile
+
+### 👑 Clan - 39€/mois
+- Jusqu'à 20 membres (famille élargie)
+- 500 GB de stockage
+- Gestion multi-générations
+- Historique illimité
+- Support prioritaire
+
+### 🏛️ Legacy - 99€/an
+- Archivage permanent
+- Transmission aux héritiers
+- Coffre-fort numérique testamentaire
+- Stockage illimité
+- Support juridique
+
+## 🚀 Installation et Développement
+
+### Prérequis
+- Node.js 18+ 
+- Yarn
+- Compte Supabase (pour la base de données)
+
+### Installation
 
 ```bash
-npm run dev
-# or
+# Cloner le repository
+git clone https://github.com/votre-username/family-vault-app.git
+cd family-vault-app
+
+# Installer les dépendances
+yarn install
+
+# Configurer les variables d'environnement
+cp .env.example .env.local
+# Éditer .env.local avec vos clés Supabase
+
+# Lancer le serveur de développement
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+L'application sera accessible sur [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Variables d'environnement
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Créez un fichier `.env.local` avec :
 
-## Learn More
+```env
+NEXT_PUBLIC_SUPABASE_URL=votre_url_supabase
+NEXT_PUBLIC_SUPABASE_ANON_KEY=votre_cle_publique_supabase
+SUPABASE_SERVICE_ROLE_KEY=votre_cle_service_supabase
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Structure du Projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+family-vault-app/
+├── src/
+│   ├── app/                 # App Router (Next.js 13+)
+│   │   ├── globals.css      # Styles globaux
+│   │   ├── layout.tsx       # Layout principal
+│   │   └── page.tsx         # Page d'accueil
+│   ├── components/          # Composants React
+│   │   ├── ui/              # Composants UI de base
+│   │   ├── hero-section.tsx # Section hero
+│   │   └── pricing-grid.tsx # Grille tarifaire
+│   └── lib/                 # Utilitaires
+│       └── utils.ts         # Fonctions utilitaires
+├── public/                  # Assets statiques
+├── package.json
+└── README.md
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Scripts Disponibles
 
-## Deploy on Vercel
+```bash
+# Développement
+yarn dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Build de production
+yarn build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Démarrer en production
+yarn start
+
+# Linting
+yarn lint
+```
+
+## 🎨 Design System
+
+FamilyVault utilise un design system cohérent basé sur :
+
+- **Couleurs principales** : Bleu (#3b82f6) et Violet (#8b5cf6)
+- **Typographie** : System fonts pour une performance optimale
+- **Composants** : Radix UI pour l'accessibilité
+- **Responsive** : Mobile-first avec Tailwind CSS
+
+## 🔐 Sécurité et Confidentialité
+
+- **Chiffrement E2E** : Toutes les communications sont chiffrées
+- **RGPD Compliant** : Hébergement européen et respect de la vie privée
+- **Zéro tracking** : Aucune donnée personnelle n'est collectée à des fins publicitaires
+- **Audit de sécurité** : Audits réguliers par des experts en cybersécurité
+
+## 🚀 Roadmap
+
+### Phase 1 (Actuelle)
+- [x] Page de présentation
+- [x] Grille tarifaire
+- [x] Design system
+- [ ] Authentification Supabase
+- [ ] Dashboard utilisateur
+
+### Phase 2
+- [ ] Partage de photos/vidéos
+- [ ] Chat familial
+- [ ] Albums collaboratifs
+- [ ] Notifications push
+
+### Phase 3
+- [ ] Applications mobiles iOS/Android
+- [ ] Sauvegarde automatique
+- [ ] Gestion multi-générations
+- [ ] API publique
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Veuillez :
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
+3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 📞 Support
+
+- **Email** : support@familyvault.eu
+- **Documentation** : [docs.familyvault.eu](https://docs.familyvault.eu)
+- **Status** : [status.familyvault.eu](https://status.familyvault.eu)
+
+---
+
+**FamilyVault** - *Protégez ce qui compte vraiment* 💙
