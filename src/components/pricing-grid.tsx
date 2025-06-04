@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Check, Shield, Users, Crown, Zap } from "lucide-react"
+import { Check, Shield, Users, Crown, Zap, TreePine, Camera, Archive } from "lucide-react"
 import { useStripe } from "@/hooks/use-stripe"
 import { PlanType, BillingInterval, STRIPE_PLANS } from "@/lib/stripe"
 import { FreeSignup } from "./free-signup"
@@ -59,49 +59,82 @@ export function PricingGrid() {
   const plans = [
     {
       id: "free" as PlanType,
-      name: "Gratuit",
+      name: "Découverte",
       price: "0€",
-      period: "/à vie",
-      description: "Accès gratuit avec publicités",
+      period: "/toujours",
+      description: "Découvrez Triib en toute sécurité",
       icon: Zap,
-      features: STRIPE_PLANS.free.features,
+      features: [
+        "500 Mo de stockage",
+        "1 crédit de groupe (créer 1 groupe OU rejoindre 3 groupes)",
+        "Photos compressées (qualité réduite)",
+        "Arbre généalogique flouté (teaser)",
+        "Historique 6 mois maximum",
+        "Support communautaire",
+        "Publicité non intrusive (respect de la vie privée)"
+      ],
       popular: false,
       color: "from-blue-500 to-cyan-600",
       isFree: true
     },
     {
       id: "personal" as PlanType,
-      name: "Personnel",
+      name: "Petits Groupes",
       price: billingInterval === 'monthly' ? "9€" : "90€",
       period: billingInterval === 'monthly' ? "/mois" : "/an",
       originalPrice: billingInterval === 'yearly' ? "108€" : undefined,
-      description: "Parfait pour débuter votre coffre-fort familial",
-      icon: Shield,
-      features: STRIPE_PLANS.personal.features,
+      description: "Parfait pour amis proches et petites familles",
+      icon: Users,
+      features: [
+        "2 Go de stockage",
+        "3 crédits de groupes (créer 3 groupes OU rejoindre 10 groupes)",
+        "Photos haute qualité",
+        "Arbre généalogique complet + export PDF",
+        "Historique illimité",
+        "Albums collaboratifs",
+        "Support prioritaire"
+      ],
       popular: false,
-      color: "from-blue-500 to-blue-600"
+      color: "from-green-500 to-green-600"
     },
     {
       id: "family" as PlanType,
-      name: "Famille",
+      name: "Grands Groupes",
       price: billingInterval === 'monthly' ? "19€" : "190€",
       period: billingInterval === 'monthly' ? "/mois" : "/an",
       originalPrice: billingInterval === 'yearly' ? "228€" : undefined,
-      description: "Idéal pour une famille nucléaire",
-      icon: Users,
-      features: STRIPE_PLANS.family.features,
+      description: "Idéal pour familles étendues et communautés",
+      icon: TreePine,
+      features: [
+        "50 Go de stockage",
+        "10 crédits de groupes (créer 10 groupes OU rejoindre illimité)",
+        "Photos & vidéos haute qualité",
+        "Arbre généalogique avancé + export GEDCOM",
+        "Auto-suppression conversations configurables",
+        "Recherche intelligente dans les médias",
+        "Modération de groupes avancée"
+      ],
       popular: true,
       color: "from-purple-500 to-purple-600"
     },
     {
       id: "clan" as PlanType,
-      name: "Clan",
-      price: billingInterval === 'monthly' ? "39€" : "390€",
+      name: "Clans",
+      price: billingInterval === 'monthly' ? "49€" : "490€",
       period: billingInterval === 'monthly' ? "/mois" : "/an",
-      originalPrice: billingInterval === 'yearly' ? "468€" : undefined,
-      description: "Pour la famille élargie et multi-générations",
+      originalPrice: billingInterval === 'yearly' ? "588€" : undefined,
+      description: "Associations, entreprises, grandes communautés",
       icon: Crown,
-      features: STRIPE_PLANS.clan.features,
+      features: [
+        "500 Go de stockage",
+        "Crédits illimités (créer et rejoindre sans limite)",
+        "Qualité originale préservée",
+        "Arbres généalogiques multi-familles",
+        "Administration avancée des groupes",
+        "Statistiques et rapports détaillés",
+        "Support dédié 24/7",
+        "API d'intégration disponible"
+      ],
       popular: false,
       color: "from-amber-500 to-amber-600"
     }
@@ -112,11 +145,11 @@ export function PricingGrid() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-slate-800">
-            Choisissez votre plan FamilyVault
+            Un plan pour chaque besoin familial
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-8">
-            Protection des données, intimité familiale et sécurité européenne. 
-            Zéro tracking, plan gratuit disponible.
+            Du couple aux grandes associations : découvrez notre système de crédits unique.
+            <strong> Vous possédez vos données, nous protégeons votre intimité.</strong>
           </p>
 
           {/* Toggle mensuel/annuel */}
@@ -144,6 +177,16 @@ export function PricingGrid() {
                 -17% 🎉
               </span>
             )}
+          </div>
+
+          {/* Explication du système de crédits */}
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl mb-8 max-w-4xl mx-auto">
+            <h3 className="text-lg font-semibold text-slate-800 mb-2">🎯 Comment fonctionnent les crédits de groupes ?</h3>
+            <p className="text-sm text-slate-600">
+              <strong>1 crédit = 1 groupe créé</strong> OU <strong>rejoindre plusieurs groupes existants.</strong>
+              <br />
+              Exemple : Avec 3 crédits, créez "Famille", "Amis du tennis" et "Voisins" OU rejoignez 10 groupes créés par d'autres.
+            </p>
           </div>
 
           {error && (
@@ -206,20 +249,12 @@ export function PricingGrid() {
 
                 <CardFooter>
                   <Button 
-                    className={`w-full ${
-                      plan.popular 
-                        ? 'bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white' 
-                        : (plan as any).isFree
-                        ? 'bg-gradient-to-r from-blue-400 to-cyan-500 hover:from-blue-500 hover:to-cyan-600 text-white'
-                        : 'border-slate-300 text-slate-700 hover:bg-slate-50'
-                    }`}
-                    variant={plan.popular || (plan as any).isFree ? "default" : "outline"}
+                    className="w-full" 
+                    variant={plan.popular ? "default" : "outline"}
                     onClick={() => handleSubscribe(plan.id)}
                     disabled={loading}
                   >
-                    {loading ? "Chargement..." : 
-                     (plan as any).isFree ? "Commencer gratuitement" :
-                     "Choisir ce plan"}
+                    {loading ? "Chargement..." : (plan as any).isFree ? "Commencer gratuitement" : "Choisir ce plan"}
                   </Button>
                 </CardFooter>
               </Card>
@@ -227,13 +262,27 @@ export function PricingGrid() {
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-sm text-slate-600">
-            🇪🇺 Hébergement européen • 🔒 Conforme RGPD • 🛡️ Chiffrement de bout en bout
-          </p>
-          <p className="text-xs text-slate-500 mt-2">
-            💳 Paiements sécurisés par Stripe • 🔄 Annulation à tout moment • 📞 Support français
-          </p>
+        {/* Section FAQ pricing */}
+        <div className="mt-16 bg-white p-8 rounded-2xl border border-slate-200">
+          <h3 className="text-2xl font-bold text-slate-800 text-center mb-8">Questions fréquentes</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-slate-800 mb-2">Puis-je changer de plan à tout moment ?</h4>
+              <p className="text-sm text-slate-600">Oui, upgrader est instantané. Downgrader prend effet au prochain cycle de facturation.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-800 mb-2">Que se passe-t-il si je dépasse mon stockage ?</h4>
+              <p className="text-sm text-slate-600">Vous recevez une notification et pouvez upgrader ou supprimer du contenu. Aucune suppression automatique.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-800 mb-2">Les crédits de groupes se cumulent-ils ?</h4>
+              <p className="text-sm text-slate-600">Non, mais vous pouvez répartir vos crédits comme vous voulez : créer des groupes OU en rejoindre.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-800 mb-2">Mes données sont-elles vraiment privées ?</h4>
+              <p className="text-sm text-slate-600">100% privées. Chiffrement bout-à-bout, hébergement EU, zéro analyse de contenu. Vous êtes propriétaire.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

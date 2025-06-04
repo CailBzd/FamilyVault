@@ -12,15 +12,32 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-800 mb-4">
-              Fonctionnalités
+              Vos souvenirs familiaux, votre intimité protégée
             </h2>
             <p className="text-lg text-slate-700 max-w-3xl mx-auto">
-              Découvrez toutes les fonctionnalités qui font de FamilyVault la solution idéale 
-              pour protéger et partager vos souvenirs familiaux.
+              L'alternative privée aux réseaux sociaux classiques. Zéro publicité, 100% de vos données vous appartiennent.
+              Redécouvrez le plaisir de partager sans être espionné.
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-slate-800 mb-2">
+                Arbre Généalogique Intelligent
+              </h3>
+              <p className="text-slate-600">
+                Construisez votre arbre familial privé. L'IA suggère les connexions basées sur vos photos et contacts partagés.
+              </p>
+              <div className="mt-3 text-sm text-purple-600 font-medium">
+                ✨ Teaser gratuit • Complet en version payante
+              </div>
+            </div>
+
             <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,39 +45,52 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                Sécurité maximale
+                Groupes Multi-Contextes
               </h3>
               <p className="text-slate-600">
-                Vos données sont chiffrées et protégées par les dernières technologies de sécurité.
+                Famille, amis, voisins, associations... Créez autant de groupes privés que vous voulez selon votre plan.
               </p>
+              <div className="mt-3 text-sm text-blue-600 font-medium">
+                🎯 Système de crédits innovant
+              </div>
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L8.121 8.121M5.636 5.636l12.728 12.728" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                Partage familial
+                Zéro Tracking, Zéro Pub
               </h3>
               <p className="text-slate-600">
-                Partagez facilement vos souvenirs avec votre famille en toute sécurité.
+                Vos photos ne sont jamais analysées pour vous vendre quoi que ce soit. Vous êtes le client, pas le produit.
               </p>
+              <div className="mt-3 text-sm text-green-600 font-medium">
+                🛡️ Hébergement européen RGPD
+              </div>
             </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
+          </div>
+
+          {/* Nouvelle section différenciation */}
+          <div className="mt-16 bg-gradient-to-r from-slate-50 to-blue-50 p-8 rounded-2xl">
+            <h3 className="text-2xl font-bold text-slate-800 text-center mb-8">
+              Pourquoi choisir Triib plutôt que...
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-lg font-semibold text-slate-700 mb-2">📱 Messageries classiques</div>
+                <p className="text-sm text-slate-600">Messages éphémères vs <strong>Stockage permanent organisé</strong></p>
               </div>
-              <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                Stockage illimité
-              </h3>
-              <p className="text-slate-600">
-                Stockez toutes vos photos, vidéos et documents sans limite de taille.
-              </p>
+              <div className="text-center">
+                <div className="text-lg font-semibold text-slate-700 mb-2">📘 Réseaux sociaux</div>
+                <p className="text-sm text-slate-600">Vos données vendues vs <strong>Vos données vous appartiennent</strong></p>
+              </div>
+              <div className="text-center">
+                <div className="text-lg font-semibold text-slate-700 mb-2">📸 Plateformes publiques</div>
+                <p className="text-sm text-slate-600">Public et algorithmes vs <strong>100% privé et familial</strong></p>
+              </div>
             </div>
           </div>
         </div>
