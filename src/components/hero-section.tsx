@@ -14,16 +14,24 @@ export function HeroSection() {
         <div className="text-center mb-16">
           {/* Logo/Brand */}
           <div className="flex items-center justify-center mb-8">
-            <Image
-              src="/treeb-logo.png"
-              alt="Treeb Logo"
-              width={64}
-              height={64}
-              className="w-16 h-16 mr-4"
-            />
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Treeb
-            </h1>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-2xl transform scale-110"></div>
+              <div className="relative bg-white rounded-3xl p-6 shadow-2xl border border-slate-200/50 backdrop-blur-sm">
+                <Image
+                  src="/treeb-logo.png"
+                  alt="Treeb Logo"
+                  width={120}
+                  height={120}
+                  className="w-24 h-24 md:w-30 md:h-30"
+                />
+              </div>
+            </div>
+            <div className="ml-6">
+              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Treeb
+              </h1>
+              <p className="text-slate-500 text-lg mt-2">Votre tribu connectée</p>
+            </div>
           </div>
 
           {/* Main headline */}
@@ -62,7 +70,13 @@ export function HeroSection() {
               Zéro tracking, zéro pub
             </div>
             <div className="flex items-center">
-              <TreePine className="w-4 h-4 mr-2 text-green-500" />
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={16}
+                height={16}
+                className="w-4 h-4 mr-2"
+              />
               Arbre généalogique inclus
             </div>
             <div className="flex items-center">
@@ -75,8 +89,14 @@ export function HeroSection() {
         {/* Feature highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
           <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-white/20">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <TreePine className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={24}
+                height={24}
+                className="w-6 h-6"
+              />
             </div>
             <h3 className="text-xl font-semibold mb-2">Feed + Arbre Généalogique</h3>
             <p className="text-slate-600">

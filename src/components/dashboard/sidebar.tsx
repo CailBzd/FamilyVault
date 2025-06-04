@@ -1,9 +1,12 @@
 "use client"
 
+import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { TreePine, Users, Plus, Crown, Camera, Archive, Zap } from "lucide-react"
 import { PlanType } from "@/components/plan-simulator"
+import Image from "next/image"
+import { useAuth } from '@/hooks/useAuth'
 
 interface SidebarProps {
   currentPlan?: PlanType
@@ -116,13 +119,22 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
   return (
     <div className="space-y-6">
       {/* Header avec logo - palette naturelle */}
-      <div className="flex items-center space-x-3 mb-8">
-        <div className="w-8 h-8 bg-gradient-to-br from-stone-700 to-stone-800 rounded-xl flex items-center justify-center shadow-sm">
-          <TreePine className="w-4 h-4 text-stone-100" />
+      <div className="flex items-center space-x-3 mb-6">
+        <div className="relative">
+          <div className="w-8 h-8 bg-white rounded-lg p-1 shadow-lg">
+            <Image
+              src="/treeb-logo.png"
+              alt="Treeb Logo"
+              width={24}
+              height={24}
+              className="w-6 h-6"
+            />
+          </div>
         </div>
-        <h1 className="text-xl font-semibold text-stone-800">
-          Treeb
-        </h1>
+        <div>
+          <h2 className="text-stone-100 font-bold text-lg">Treeb</h2>
+          <p className="text-stone-400 text-xs">Votre tribu connectée</p>
+        </div>
       </div>
 
       {/* Plan et stockage - harmonisé */}
@@ -220,7 +232,15 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
         <CardContent className="p-5">
           <div className="text-center">
             <div className={`w-14 h-14 ${colors.bg} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm`}>
-              <TreePine className={`w-7 h-7 ${colors.accent}`} />
+              <div className="w-8 h-8 bg-white rounded-lg p-1 shadow-sm">
+                <Image
+                  src="/treeb-logo.png"
+                  alt="Treeb Logo"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
+              </div>
             </div>
             <div className="text-sm font-medium text-stone-700 mb-2">Arbre généalogique</div>
             <div className="text-xs text-stone-500 mb-4">{config.features.genealogy}</div>
@@ -253,7 +273,13 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
               {config.features.groupLimit}
             </div>
             <div className="flex items-center">
-              <TreePine className="w-3 h-3 mr-2" />
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={12}
+                height={12}
+                className="w-3 h-3 mr-2"
+              />
               {config.features.genealogy}
             </div>
           </div>

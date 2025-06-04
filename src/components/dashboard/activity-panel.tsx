@@ -1,9 +1,11 @@
 "use client"
 
+import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Sparkles, TreePine, Users, Camera, Crown, TrendingUp, Gift, Star } from "lucide-react"
 import { PlanType } from "@/components/plan-simulator"
+import Image from "next/image"
 
 interface ActivityPanelProps {
   currentPlan?: PlanType
@@ -119,7 +121,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
       <Card className={`${colors.border} bg-gradient-to-br ${colors.bg} shadow-sm`}>
         <CardHeader className="pb-3">
           <CardTitle className="text-lg flex items-center">
-            <Sparkles className={`w-5 h-5 mr-2 ${colors.accent}`} />
+            <Image
+              src="/treeb-logo.png"
+              alt="Treeb Logo"
+              width={20}
+              height={20}
+              className="w-5 h-5 mr-2"
+            />
             Votre potentiel Treeb
           </CardTitle>
         </CardHeader>
@@ -127,7 +135,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
           {/* Arbre généalogique adaptatif */}
           <div className="relative">
             <div className="text-sm font-medium mb-2 flex items-center text-stone-700">
-              <TreePine className="w-4 h-4 mr-2" />
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={16}
+                height={16}
+                className="w-4 h-4 mr-2"
+              />
               Arbre généalogique
             </div>
             
@@ -136,7 +150,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
                 <div className="absolute inset-0 backdrop-blur-[2px] bg-white/40" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <TreePine className="w-6 h-6 text-stone-500 mx-auto mb-1" />
+                    <Image
+                      src="/treeb-logo.png"
+                      alt="Treeb Logo"
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 text-stone-500 mx-auto mb-1"
+                    />
                     <div className="text-xs text-stone-600 font-medium">Aperçu flouté</div>
                   </div>
                 </div>
@@ -148,7 +168,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
             ) : (
               <div className={`h-24 bg-gradient-to-br ${colors.bg} rounded-xl border ${colors.border} flex items-center justify-center`}>
                 <div className="text-center">
-                  <TreePine className={`w-6 h-6 ${colors.accent} mx-auto mb-1`} />
+                  <Image
+                    src="/treeb-logo.png"
+                    alt="Treeb Logo"
+                    width={24}
+                    height={24}
+                    className={`w-6 h-6 ${colors.accent} mx-auto mb-1`}
+                  />
                   <div className={`text-xs ${colors.text} font-medium`}>{config.genealogyTeaser}</div>
                 </div>
               </div>
@@ -156,7 +182,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
             
             {config.hiddenConnections > 0 && (
               <div className={`text-xs ${colors.accent} font-medium mt-2 flex items-center`}>
-                <Sparkles className="w-3 h-3 mr-1" />
+                <Image
+                  src="/treeb-logo.png"
+                  alt="Treeb Logo"
+                  width={16}
+                  height={16}
+                  className="w-3 h-3 mr-1"
+                />
                 Découvrir {config.hiddenConnections} connexions cachées
               </div>
             )}
@@ -171,7 +203,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
               <div className="space-y-1 text-xs">
                 {config.features.map((feature, index) => (
                   <div key={index} className={`flex items-center ${colors.text}`}>
-                    <Star className="w-3 h-3 mr-2" />
+                    <Image
+                      src="/treeb-logo.png"
+                      alt="Treeb Logo"
+                      width={16}
+                      height={16}
+                      className="w-3 h-3 mr-2"
+                    />
                     {feature}
                   </div>
                 ))}
@@ -231,9 +269,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
         <Card className="border-orange-200 bg-gradient-to-r from-orange-50 to-red-50 shadow-sm">
           <CardContent className="p-4">
             <div className="flex items-center mb-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                <Gift className="w-4 h-4 text-white" />
-              </div>
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={16}
+                height={16}
+                className="w-4 h-4 mr-2"
+              />
               <span className="text-sm font-medium text-orange-800 ml-3">
                 Suggestion d'engagement
               </span>
@@ -260,7 +302,13 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
         <CardContent className="p-4">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
-              <TrendingUp className="w-5 h-5 text-stone-600 mr-2" />
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={16}
+                height={16}
+                className="w-4 h-4 mr-2"
+              />
               <span className="text-2xl font-bold text-stone-800">23</span>
             </div>
             <div className="text-xs text-stone-600 mb-1">souvenirs partagés ce mois</div>

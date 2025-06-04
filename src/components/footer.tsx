@@ -1,18 +1,23 @@
 import Link from "next/link"
-import { TreePine, Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
+import Image from "next/image"
 
 export function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-100">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="bg-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo et description */}
-          <div className="md:col-span-1">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
-                <TreePine className="w-5 h-5 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-white">Treeb</h3>
+          <div>
+            <div className="flex items-center mb-4">
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={20}
+                height={20}
+                className="w-5 h-5 mr-2"
+              />
+              <span className="text-xl font-bold">Treeb</span>
             </div>
             <p className="text-stone-400 text-sm mb-4">
               Votre réseau social familial privé. Partagez vos souvenirs en toute sécurité, sans publicité ni tracking.
@@ -71,7 +76,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Séparateur */}
+        {/* Séparateur et infos légales */}
         <div className="border-t border-stone-800 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-xs text-stone-500">
             <div className="mb-4 md:mb-0">

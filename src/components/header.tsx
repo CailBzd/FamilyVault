@@ -55,7 +55,38 @@ export function Header() {
   }
 
   const scrollToSection = (sectionId: string) => {
+    if (window.location.pathname !== '/') {
+      window.location.href = `/#${sectionId}`
+      return
+    }
+    
     const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+      setMobileMenuOpen(false)
+    }
+  }
+
+  const scrollToFeatures = () => {
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#features'
+      return
+    }
+    
+    const element = document.getElementById('features')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+      setMobileMenuOpen(false)
+    }
+  }
+
+  const scrollToPricing = () => {
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#pricing'
+      return
+    }
+    
+    const element = document.getElementById('pricing')
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
       setMobileMenuOpen(false)
@@ -103,26 +134,28 @@ export function Header() {
           </div>
 
           {/* Navigation Desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="text-slate-600 hover:text-slate-900 transition-colors"
-            >
-              Accueil
-            </button>
-            <Link
-              href="/features"
-              className="text-slate-600 hover:text-slate-900 transition-colors"
-            >
-              Fonctionnalités
-            </Link>
-            <Link
-              href="/pricing"
-              className="text-slate-600 hover:text-slate-900 transition-colors"
-            >
-              Tarifs
-            </Link>
-          </nav>
+          {!user && (
+            <nav className="hidden md:flex items-center space-x-8">
+              <button
+                onClick={() => scrollToSection('hero')}
+                className="text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                Accueil
+              </button>
+              <button
+                onClick={scrollToFeatures}
+                className="text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                Fonctionnalités
+              </button>
+              <button
+                onClick={scrollToPricing}
+                className="text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                Tarifs
+              </button>
+            </nav>
+          )}
 
           {/* Actions Desktop */}
           <div className="hidden md:flex items-center space-x-4">
@@ -225,26 +258,28 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection('hero')}
-                className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md w-full text-left"
-              >
-                Accueil
-              </button>
-              <Link
-                href="/features"
-                className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Fonctionnalités
-              </Link>
-              <Link
-                href="/pricing"
-                className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Tarifs
-              </Link>
+              {!user && (
+                <>
+                  <button
+                    onClick={() => scrollToSection('hero')}
+                    className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md w-full text-left"
+                  >
+                    Accueil
+                  </button>
+                  <button
+                    onClick={scrollToFeatures}
+                    className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md w-full text-left"
+                  >
+                    Fonctionnalités
+                  </button>
+                  <button
+                    onClick={scrollToPricing}
+                    className="block px-3 py-2 text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md w-full text-left"
+                  >
+                    Tarifs
+                  </button>
+                </>
+              )}
               
               <div className="border-t pt-4">
                 {loading ? (
