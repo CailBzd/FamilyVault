@@ -64,6 +64,8 @@ export function PricingGrid() {
       period: "/toujours",
       description: "Découvrez Treeb en toute sécurité",
       icon: Zap,
+      ecological: "Aucun arbre planté",
+      ecologicalColor: "text-stone-500",
       features: [
         "500 Mo de stockage",
         "1 crédit de groupe (créer 1 groupe OU rejoindre 3 groupes)",
@@ -85,6 +87,8 @@ export function PricingGrid() {
       originalPrice: billingInterval === 'yearly' ? "108€" : undefined,
       description: "Parfait pour amis proches et petites familles",
       icon: Users,
+      ecological: billingInterval === 'yearly' ? "🌳 1 arbre planté par an" : "Aucun arbre (abonnement mensuel)",
+      ecologicalColor: billingInterval === 'yearly' ? "text-emerald-600" : "text-stone-500",
       features: [
         "2 Go de stockage",
         "3 crédits de groupes (créer 3 groupes OU rejoindre 10 groupes)",
@@ -105,6 +109,8 @@ export function PricingGrid() {
       originalPrice: billingInterval === 'yearly' ? "228€" : undefined,
       description: "Idéal pour familles étendues et communautés",
       icon: TreePine,
+      ecological: billingInterval === 'yearly' ? "🌳 3 arbres plantés par an" : "Aucun arbre (abonnement mensuel)",
+      ecologicalColor: billingInterval === 'yearly' ? "text-emerald-600" : "text-stone-500",
       features: [
         "50 Go de stockage",
         "10 crédits de groupes (créer 10 groupes OU rejoindre illimité)",
@@ -125,6 +131,8 @@ export function PricingGrid() {
       originalPrice: billingInterval === 'yearly' ? "588€" : undefined,
       description: "Associations, entreprises, grandes communautés",
       icon: Crown,
+      ecological: billingInterval === 'yearly' ? "🌳 10 arbres plantés par an + invitation à la plantation" : "Aucun arbre (abonnement mensuel)",
+      ecologicalColor: billingInterval === 'yearly' ? "text-emerald-600" : "text-stone-500",
       features: [
         "500 Go de stockage",
         "Crédits illimités (créer et rejoindre sans limite)",
@@ -178,6 +186,23 @@ export function PricingGrid() {
               </span>
             )}
           </div>
+
+          {/* Message écologique humoristique */}
+          {billingInterval === 'monthly' && (
+            <div className="bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200 p-4 rounded-xl mb-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <span className="text-2xl mb-2 block">🌱</span>
+                <p className="text-sm text-emerald-700">
+                  <strong>Psst...</strong> Passez en annuel pour donner un second souffle à la planète ! 
+                  <br />
+                  Vos abonnements planteront de vrais arbres 🌳
+                </p>
+                <p className="text-xs text-emerald-600 mt-1 italic">
+                  (La planète vous remerciera, et votre portefeuille aussi !)
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Explication du système de crédits */}
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl mb-8 max-w-4xl mx-auto">
@@ -234,6 +259,10 @@ export function PricingGrid() {
                       <span className="ml-2 text-green-600 font-medium">Économisez 17%</span>
                     </div>
                   )}
+                  {/* Impact écologique */}
+                  <div className={`mt-3 text-xs font-medium ${(plan as any).ecologicalColor}`}>
+                    {(plan as any).ecological}
+                  </div>
                 </CardHeader>
 
                 <CardContent>

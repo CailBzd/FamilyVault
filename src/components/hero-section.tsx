@@ -47,6 +47,8 @@ export function HeroSection() {
           <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
             Feed privé + arbre généalogique intelligent + groupes multi-contextes. 
             <strong>Zéro pub, 100% vos données.</strong> L'alternative familiale que vous attendiez.
+            <br />
+            <span className="text-emerald-600 font-medium">🌳 Chaque abonnement plante des arbres réels</span>
           </p>
 
           {/* CTA Buttons */}
@@ -54,8 +56,8 @@ export function HeroSection() {
             <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-4">
               Créer mon feed familial
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              Voir comment ça marche
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-emerald-300 text-emerald-700 hover:bg-emerald-50">
+              🌳 Voir l'impact écologique
             </Button>
           </div>
 

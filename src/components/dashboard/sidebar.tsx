@@ -24,6 +24,9 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
       icon: Zap,
       color: 'emerald' as ColorTheme,
       canCreateGroup: false,
+      treesPerYear: 0,
+      totalTreesPlanted: 0,
+      nextPlantingDate: '-',
       features: {
         photoQuality: 'Qualité réduite',
         genealogy: 'Aperçu flouté',
@@ -38,6 +41,9 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
       icon: Users,
       color: 'blue' as ColorTheme,
       canCreateGroup: true,
+      treesPerYear: 1,
+      totalTreesPlanted: 2,
+      nextPlantingDate: '15 Mars 2025',
       features: {
         photoQuality: 'Haute qualité',
         genealogy: 'Arbre complet',
@@ -52,6 +58,9 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
       icon: TreePine,
       color: 'violet' as ColorTheme,
       canCreateGroup: true,
+      treesPerYear: 3,
+      totalTreesPlanted: 9,
+      nextPlantingDate: '15 Mars 2025',
       features: {
         photoQuality: 'Haute qualité + vidéos',
         genealogy: 'Arbre avancé + export',
@@ -66,6 +75,9 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
       icon: Crown,
       color: 'amber' as ColorTheme,
       canCreateGroup: true,
+      treesPerYear: 10,
+      totalTreesPlanted: 25,
+      nextPlantingDate: '15 Mars 2025',
       features: {
         photoQuality: 'Qualité originale',
         genealogy: 'Multi-familles + API',
@@ -282,6 +294,51 @@ export function Sidebar({ currentPlan = 'discovery' }: SidebarProps) {
               />
               {config.features.genealogy}
             </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Impact Écologique - Nouveauté */}
+      <Card className="border-emerald-200 bg-gradient-to-br from-emerald-50 to-green-50 shadow-sm">
+        <CardContent className="p-4">
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-3">
+              <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center shadow-sm">
+                <span className="text-white text-lg">🌳</span>
+              </div>
+            </div>
+            <div className="text-sm font-medium text-emerald-800 mb-2">Impact Écologique</div>
+            <div className="text-lg font-bold text-emerald-700 mb-1">
+              {config.treesPerYear === 0 ? '0' : config.totalTreesPlanted} arbre{config.totalTreesPlanted > 1 ? 's' : ''} planté{config.totalTreesPlanted > 1 ? 's' : ''}
+            </div>
+            {config.treesPerYear > 0 ? (
+              <>
+                <div className="text-xs text-emerald-600 mb-2">
+                  +{config.treesPerYear} arbre{config.treesPerYear > 1 ? 's' : ''}/an avec abonnement annuel
+                </div>
+                {currentPlan === 'clan' && (
+                  <div className="text-xs text-amber-600 font-medium mb-2">
+                    + Invitation à participer à la plantation
+                  </div>
+                )}
+                <div className="text-xs text-stone-500">
+                  Prochain: {config.nextPlantingDate}
+                </div>
+              </>
+            ) : (
+              <div className="text-xs text-stone-500 mb-2">
+                Plantez des arbres avec un abonnement annuel supérieur
+              </div>
+            )}
+            {config.treesPerYear === 0 ? (
+              <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs mt-2">
+                Planter mes premiers arbres
+              </Button>
+            ) : (
+              <div className="mt-2 p-2 bg-emerald-100 rounded-lg">
+                <div className="text-xs text-emerald-700 font-medium">🌍 Votre tribu plante pour la planète</div>
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>

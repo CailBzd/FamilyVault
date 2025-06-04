@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { PricingGrid } from "@/components/pricing-grid"
+import { PricingComparison } from "@/components/pricing-comparison"
 import { DashboardLayout } from "@/components/dashboard/dashboard-layout"
 import { Button } from "@/components/ui/button"
 
@@ -47,6 +48,111 @@ export default function Home() {
 
       <section id="hero" className="bg-blue-100">
         <HeroSection />
+      </section>
+
+      {/* Section Impact Écologique - Point central */}
+      <section className="py-16 bg-gradient-to-br from-emerald-50 to-green-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mr-4">
+                <span className="text-white text-2xl">🌳</span>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold text-emerald-800">
+                  Treeb = Tree + Tribu
+                </h2>
+                <p className="text-emerald-600 text-lg">Votre famille connectée plante pour la planète</p>
+              </div>
+            </div>
+            <p className="text-lg text-slate-700 max-w-3xl mx-auto mb-8">
+              Chaque abonnement supérieur finance la plantation d'arbres réels. 
+              Plus votre tribu grandit, plus votre impact écologique grandit aussi.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-6 mb-12">
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-emerald-100">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">🆓</span>
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">Plan Découverte</h3>
+                <div className="text-2xl font-bold text-slate-600 mb-2">0€</div>
+                <div className="text-sm text-stone-500">0 arbre planté</div>
+                <div className="text-xs text-stone-400 mt-2">Testez Treeb gratuitement</div>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-blue-200">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl">🌱</span>
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">Petits Groupes</h3>
+                <div className="text-2xl font-bold text-blue-600 mb-2">9€/mois</div>
+                <div className="text-sm font-medium text-emerald-600">🌳 1 arbre/an</div>
+                <div className="text-xs text-stone-500 mt-2">Avec abonnement annuel uniquement</div>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-violet-200">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-violet-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl">🌲</span>
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">Grands Groupes</h3>
+                <div className="text-2xl font-bold text-violet-600 mb-2">19€/mois</div>
+                <div className="text-sm font-medium text-emerald-600">🌳 3 arbres/an</div>
+                <div className="text-xs text-stone-500 mt-2">Avec abonnement annuel uniquement</div>
+              </div>
+            </div>
+            
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-amber-200">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <span className="text-xl">🏞️</span>
+                </div>
+                <h3 className="font-semibold text-slate-800 mb-2">Clans</h3>
+                <div className="text-2xl font-bold text-amber-600 mb-2">49€/mois</div>
+                <div className="text-sm font-medium text-emerald-600">🌳 10 arbres/an</div>
+                <div className="text-xs text-amber-600 font-medium mt-1">+ Invitation à participer à la plantation</div>
+                <div className="text-xs text-stone-500 mt-1">Avec abonnement annuel uniquement</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Partenariat et transparence */}
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-emerald-100">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold text-slate-800 mb-2">
+                🤝 Plantation réelle et traçable
+              </h3>
+              <p className="text-slate-600">
+                Partenariat avec des organismes certifiés de reforestation. 
+                Recevez le certificat de vos arbres avec géolocalisation et photos de croissance.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-slate-500">
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                Certification internationale
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                Suivi par satellite
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                Photos de croissance
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                Impact carbone calculé
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       
       <section id="features" className="py-16 bg-slate-200">
@@ -139,6 +245,11 @@ export default function Home() {
       
       <section id="pricing" className="bg-purple-100">
         <PricingGrid />
+      </section>
+
+      {/* Tableau comparatif */}
+      <section className="py-16 bg-slate-50">
+        <PricingComparison />
       </section>
     </main>
   )

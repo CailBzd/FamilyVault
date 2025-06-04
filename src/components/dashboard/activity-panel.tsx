@@ -22,7 +22,10 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
       hiddenConnections: 12,
       upgradePrice: '9€/mois',
       nextPlan: 'Petits Groupes',
-      features: ['Photos haute qualité', 'Arbre généalogique complet', '2 groupes supplémentaires']
+      features: ['Photos haute qualité', 'Arbre généalogique complet', '2 groupes supplémentaires'],
+      totalTreesPlanted: 0,
+      treesPerYear: 0,
+      nextPlantingDate: ''
     },
     small: {
       name: 'Petits Groupes',
@@ -31,7 +34,10 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
       hiddenConnections: 8,
       upgradePrice: '19€/mois',
       nextPlan: 'Grands Groupes',
-      features: ['50 Go de stockage', '7 groupes supplémentaires', 'Recherche intelligente']
+      features: ['50 Go de stockage', '7 groupes supplémentaires', 'Recherche intelligente'],
+      totalTreesPlanted: 2,
+      treesPerYear: 1,
+      nextPlantingDate: '15 Mars 2025'
     },
     large: {
       name: 'Grands Groupes',
@@ -40,7 +46,10 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
       hiddenConnections: 0,
       upgradePrice: '49€/mois',
       nextPlan: 'Clans',
-      features: ['500 Go de stockage', 'Groupes illimités', 'API d\'intégration']
+      features: ['500 Go de stockage', 'Groupes illimités', 'API d\'intégration'],
+      totalTreesPlanted: 9,
+      treesPerYear: 3,
+      nextPlantingDate: '15 Mars 2025'
     },
     clan: {
       name: 'Clans',
@@ -49,7 +58,10 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
       hiddenConnections: 0,
       upgradePrice: null,
       nextPlan: null,
-      features: ['Accès complet', 'Support 24/7', 'Fonctionnalités avancées']
+      features: ['Accès complet', 'Support 24/7', 'Fonctionnalités avancées'],
+      totalTreesPlanted: 25,
+      treesPerYear: 10,
+      nextPlantingDate: '15 Mars 2025'
     }
   }
 
@@ -318,6 +330,36 @@ export function ActivityPanel({ currentPlan = 'discovery' }: ActivityPanelProps)
           </div>
         </CardContent>
       </Card>
+
+      {/* Impact Écologique */}
+      {currentPlan !== 'discovery' && (
+        <Card className="border-emerald-200 bg-gradient-to-br from-emerald-50 to-green-50 shadow-sm">
+          <CardContent className="p-4">
+            <div className="text-center">
+              <div className="text-lg mb-2">🌳</div>
+              <div className="text-lg font-bold text-emerald-700 mb-1">
+                {planConfig[currentPlan].totalTreesPlanted} arbres plantés
+              </div>
+              <div className="text-xs text-emerald-600 mb-2">
+                +{planConfig[currentPlan].treesPerYear} par an avec abonnement annuel
+              </div>
+              {currentPlan === 'clan' && (
+                <div className="text-xs text-amber-600 font-medium mb-2">
+                  + Invitation à participer à la plantation
+                </div>
+              )}
+              <div className="text-xs text-stone-600">
+                🌍 Votre tribu contribue à la reforestation
+              </div>
+              <div className="mt-2 p-2 bg-emerald-100 rounded-lg">
+                <div className="text-xs text-emerald-700 font-medium">
+                  Prochain: {planConfig[currentPlan].nextPlantingDate}
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
     </div>
   )
 } 
