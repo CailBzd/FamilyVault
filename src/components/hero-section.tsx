@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Shield, Heart, Lock, Users, TreePine, Camera } from "lucide-react"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -13,9 +14,13 @@ export function HeroSection() {
         <div className="text-center mb-16">
           {/* Logo/Brand */}
           <div className="flex items-center justify-center mb-8">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
-              <TreePine className="w-8 h-8 text-white" />
-            </div>
+            <Image
+              src="/treeb-logo.png"
+              alt="Treeb Logo"
+              width={64}
+              height={64}
+              className="w-16 h-16 mr-4"
+            />
             <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Treeb
             </h1>

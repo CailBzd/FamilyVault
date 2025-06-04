@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useAuth } from '@/hooks/useAuth'
 import { Button } from '@/components/ui/button'
 import { 
@@ -90,9 +91,13 @@ export function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">FV</span>
-              </div>
+              <Image
+                src="/treeb-logo.png"
+                alt="Treeb Logo"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <span className="font-bold text-xl text-slate-900">Treeb</span>
             </Link>
           </div>
