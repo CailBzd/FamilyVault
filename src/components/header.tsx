@@ -93,7 +93,7 @@ export function Header() {
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">FV</span>
               </div>
-              <span className="font-bold text-xl text-slate-900">FamilyVault</span>
+              <span className="font-bold text-xl text-slate-900">Treeb</span>
             </Link>
           </div>
 

@@ -1,4 +1,5 @@
 import { PricingGrid } from "@/components/pricing-grid"
+import { Metadata } from "next"
 
 export default function PricingPage() {
   return (
@@ -6,7 +7,7 @@ export default function PricingPage() {
       <div className="py-16 bg-gradient-to-b from-blue-200 to-purple-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            Tarifs FamilyVault
+            Tarifs Treeb
           </h1>
           <p className="text-xl text-slate-700 mb-8">
             Choisissez le plan qui convient le mieux à votre famille. 
@@ -92,7 +93,7 @@ export default function PricingPage() {
               Vous avez d'autres questions ?
             </p>
             <a 
-              href="mailto:support@familyvault.eu"
+              href="mailto:support@treeb.eu"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 transition-colors"
             >
               Contactez notre support
@@ -102,4 +103,9 @@ export default function PricingPage() {
       </div>
     </main>
   )
+}
+
+export const metadata: Metadata = {
+  title: "Tarifs Treeb",
+  description: "Découvrez nos offres d'abonnement pour préserver vos souvenirs familiaux",
 } 

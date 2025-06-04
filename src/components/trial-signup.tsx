@@ -348,7 +348,7 @@ export function TrialSignup({ onSuccess }: TrialSignupProps) {
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto" />
             <div>
               <h3 className="text-lg font-semibold text-green-700">
-                Bienvenue dans FamilyVault !
+                Bienvenue dans Treeb !
               </h3>
               <p className="text-sm text-muted-foreground mt-2">
                 Votre essai gratuit expire le{' '}

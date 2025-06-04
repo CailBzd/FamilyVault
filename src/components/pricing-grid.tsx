@@ -23,7 +23,7 @@ export function PricingGrid() {
     // Pour l'instant, on utilise des données de test
     const mockUser = {
       userId: "user_test_123",
-      userEmail: "test@familyvault.eu",
+      userEmail: "test@treeb.eu",
       userName: "Test User"
     }
 
@@ -62,7 +62,7 @@ export function PricingGrid() {
       name: "Découverte",
       price: "0€",
       period: "/toujours",
-      description: "Découvrez Triib en toute sécurité",
+      description: "Découvrez Treeb en toute sécurité",
       icon: Zap,
       features: [
         "500 Mo de stockage",

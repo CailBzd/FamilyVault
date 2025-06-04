@@ -25,7 +25,7 @@ export default function DashboardPage() {
     id: 'user_demo_123',
     firstName: 'Jean',
     lastName: 'Dupont',
-    email: 'jean.dupont@familyvault.eu',
+    email: 'jean.dupont@treeb.eu',
     phone: '06 12 34 56 78',
     emailVerified: true,
     phoneVerified: true,
@@ -127,7 +127,7 @@ export default function DashboardPage() {
                 <Shield className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">FamilyVault</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Treeb</h1>
                 <p className="text-sm text-gray-500">Tableau de bord</p>
               </div>
             </div>
@@ -218,7 +218,7 @@ export default function DashboardPage() {
                     <CardTitle className="text-blue-800">Plan Gratuit avec Publicités</CardTitle>
                   </div>
                   <CardDescription className="text-blue-700">
-                    Vous utilisez FamilyVault gratuitement. Les publicités nous aident à maintenir ce service gratuit.
+                    Vous utilisez Treeb gratuitement. Les publicités nous aident à maintenir ce service gratuit.
                     Passez à un plan payant pour supprimer les publicités et débloquer plus de fonctionnalités.
                   </CardDescription>
                 </CardHeader>
@@ -239,7 +239,7 @@ export default function DashboardPage() {
                     <CardTitle className="text-orange-800">Votre essai gratuit expire bientôt</CardTitle>
                   </div>
                   <CardDescription className="text-orange-700">
-                    Il vous reste {daysRemaining} jour{daysRemaining > 1 ? 's' : ''} pour profiter de FamilyVault gratuitement.
+                    Il vous reste {daysRemaining} jour{daysRemaining > 1 ? 's' : ''} pour profiter de Treeb gratuitement.
                     Choisissez un plan pour continuer à protéger vos souvenirs familiaux.
                   </CardDescription>
                 </CardHeader>

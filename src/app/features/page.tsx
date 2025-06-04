@@ -1,14 +1,22 @@
+import { Metadata } from "next"
+import { Shield, Users, Clock, Search, Download, Heart } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Fonctionnalités Treeb",
+  description: "Découvrez toutes les fonctionnalités qui font de Treeb la solution idéale",
+};
+
 export default function FeaturesPage() {
   return (
     <main className="min-h-screen py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Fonctionnalités FamilyVault
+            Fonctionnalités Treeb
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez toutes les fonctionnalités qui font de FamilyVault la solution idéale 
-            pour protéger et partager vos souvenirs familiaux en toute sécurité.
+            Découvrez toutes les fonctionnalités qui font de Treeb la solution idéale 
+            pour préserver et partager vos souvenirs familiaux en toute sécurité.
           </p>
         </div>
         
@@ -145,8 +153,8 @@ export default function FeaturesPage() {
             Prêt à protéger vos souvenirs familiaux ?
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Rejoignez des milliers de familles qui font confiance à FamilyVault 
-            pour préserver leurs moments précieux.
+            Rejoignez des milliers de familles qui font confiance à Treeb 
+            pour préserver leurs souvenirs les plus précieux.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Script pour créer automatiquement les produits et prix Stripe pour FamilyVault
+ * Script pour créer automatiquement les produits et prix Stripe pour Treeb
  * Crée les tarifs mensuels et annuels pour chaque plan
  * Usage: node scripts/setup-stripe-products.js
  */
@@ -10,67 +10,65 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 async function createProducts() {
   try {
-    console.log('🚀 Configuration des produits Stripe pour FamilyVault...\n')
+    console.log('🚀 Configuration des produits Stripe pour Treeb...\n')
 
     // Configuration des plans avec prix mensuels et annuels
     const plans = [
       {
-        name: 'FamilyVault Personnel',
+        name: 'Treeb Personnel',
         id: 'personal',
-        description: 'Parfait pour débuter votre coffre-fort familial',
+        description: 'Plan Personnel - Stockage limité pour usage personnel',
         monthlyPrice: 900, // 9€
         yearlyPrice: 9000, // 90€ (économie de 17%)
         features: [
-          'Stockage sécurisé 50GB',
-          'Jusqu\'à 5 membres famille',
-          'Partage de documents',
-          'Sauvegarde automatique',
-          'Support email'
+          '500 MB de stockage',
+          '1 crédit de groupe',
+          'Photos haute qualité',
+          'Support par email'
         ]
       },
       {
-        name: 'FamilyVault Famille',
+        name: 'Treeb Famille',
         id: 'family',
-        description: 'Idéal pour une famille nucléaire',
+        description: 'Plan Famille - Idéal pour les petites familles',
         monthlyPrice: 1900, // 19€
         yearlyPrice: 19000, // 190€ (économie de 17%)
         features: [
-          'Stockage sécurisé 200GB',
-          'Jusqu\'à 8 membres famille',
-          'Arbre généalogique avancé',
-          'Partage multi-générations',
-          'Notifications temps réel',
+          '2 GB de stockage',
+          '3 crédits de groupes',
+          'Photos haute qualité',
+          'Arbre généalogique',
           'Support prioritaire'
         ]
       },
       {
-        name: 'FamilyVault Clan',
+        name: 'Treeb Clan',
         id: 'clan',
-        description: 'Pour la famille élargie et multi-générations',
+        description: 'Plan Clan - Pour les grandes familles et communautés',
         monthlyPrice: 3900, // 39€
         yearlyPrice: 39000, // 390€ (économie de 17%)
         features: [
-          'Stockage sécurisé 500GB',
-          'Jusqu\'à 20 membres famille',
-          'Gestion multi-générations',
-          'Outils de collaboration',
-          'Historique familial complet',
-          'Support téléphonique'
+          '50 GB de stockage',
+          '10 crédits de groupes',
+          'Photos et vidéos haute qualité',
+          'Recherche intelligente',
+          'Arbre généalogique avancé',
+          'Support prioritaire'
         ]
       },
       {
-        name: 'FamilyVault Legacy',
+        name: 'Treeb Legacy',
         id: 'legacy',
-        description: 'Transmission et archivage permanent',
+        description: 'Plan Legacy - Solution complète pour préserver l\'héritage familial',
         monthlyPrice: 9900, // 99€
         yearlyPrice: 99000, // 990€ (économie de 17%)
         features: [
-          'Stockage illimité',
-          'Membres famille illimités',
-          'Archivage permanent',
-          'Transmission héréditaire',
-          'Conformité légale',
-          'Support dédié 24/7'
+          '500 GB de stockage',
+          'Crédits de groupes illimités',
+          'Toutes les fonctionnalités premium',
+          'API d\'intégration',
+          'Support dédié',
+          'Sauvegarde géographique'
         ]
       }
     ]
@@ -144,7 +142,7 @@ async function createProducts() {
       console.log(`STRIPE_${p.plan.toUpperCase()}_YEARLY_PRICE_ID=${p.yearlyPrice}`)
     })
 
-    console.log('\n📋 Résumé des plans FamilyVault:')
+    console.log('\n📋 Résumé des plans Treeb:')
     console.log('┌─────────────────────────────────────────────────────────────┐')
     console.log('│ PLAN GRATUIT (sans Stripe)                                 │')
     console.log('│ • Accès gratuit à vie avec publicités                      │')

@@ -16,7 +16,7 @@ export const getStripe = () => {
   return stripePromise
 }
 
-// Configuration des plans FamilyVault avec plan gratuit, essai gratuit et tarifs mensuels/annuels
+// Configuration des plans Treeb avec plan gratuit, essai gratuit et tarifs mensuels/annuels
 export const STRIPE_PLANS = {
   free: {
     name: 'Gratuit',

@@ -1,9 +1,50 @@
+"use client"
+
+import { useState } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { PricingGrid } from "@/components/pricing-grid"
+import { DashboardLayout } from "@/components/dashboard/dashboard-layout"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
+  // Simulation d'état de connexion et de rôle - à remplacer par vraie auth plus tard
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isSuperAdmin, setIsSuperAdmin] = useState(false)
+
+  // Si connecté, afficher le dashboard
+  if (isLoggedIn) {
+    return <DashboardLayout isSuperAdmin={isSuperAdmin} />
+  }
+
+  // Sinon, afficher la landing page
   return (
     <main className="min-h-screen">
+      {/* Boutons de simulation - à supprimer plus tard */}
+      <div className="fixed top-4 left-4 z-50 space-y-2">
+        <Button 
+          onClick={() => {
+            setIsLoggedIn(true)
+            setIsSuperAdmin(false)
+          }}
+          variant="outline"
+          size="sm"
+          className="block w-full bg-white/90 backdrop-blur-sm"
+        >
+          🔧 Connexion utilisateur
+        </Button>
+        <Button 
+          onClick={() => {
+            setIsLoggedIn(true)
+            setIsSuperAdmin(true)
+          }}
+          variant="outline"
+          size="sm"
+          className="block w-full bg-rose-50/90 backdrop-blur-sm border-rose-200 text-rose-700"
+        >
+          👑 Connexion super admin
+        </Button>
+      </div>
+
       <section id="hero" className="bg-blue-100">
         <HeroSection />
       </section>
@@ -76,7 +117,7 @@ export default function Home() {
           {/* Nouvelle section différenciation */}
           <div className="mt-16 bg-gradient-to-r from-slate-50 to-blue-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-slate-800 text-center mb-8">
-              Pourquoi choisir Triib plutôt que...
+              Pourquoi choisir Treeb plutôt que...
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">

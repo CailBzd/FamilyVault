@@ -17,7 +17,7 @@ export function HeroSection() {
               <TreePine className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Triib
+              Treeb
             </h1>
           </div>
 
@@ -115,7 +115,7 @@ export function HeroSection() {
               <p className="text-sm text-slate-600">Messages éphémères, aucune organisation long terme</p>
             </div>
             <div className="p-4">
-              <div className="text-lg font-semibold text-green-600 mb-2">✅ Triib</div>
+              <div className="text-lg font-semibold text-green-600 mb-2">✅ Treeb</div>
               <p className="text-sm text-slate-600">Vos souvenirs organisés, votre intimité protégée</p>
             </div>
           </div>
